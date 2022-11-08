@@ -35,3 +35,17 @@
 <br/>   
 <img src="./assets/readme/login.png" height="400px"/>
 <img src="./assets/readme/register.png" height="400px"/>
+    
+    
+## Projeye Bağlanacak Mobil Ve Windows Uygulamalarının Kaynakları
+**Framework :** 
+
+<image src="https://storage.googleapis.com/cms-storage-bucket/ec64036b4eacc9f3fd73.svg"  width="300">
+<br/>
+<br/>
+
+**Language :**
+
+<image src="https://dart.dev/assets/img/shared/dart/logo+text/horizontal/white.svg"  width="300">
+<br/>
+<br/>
