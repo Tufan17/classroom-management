@@ -1,10 +1,24 @@
 # <img src="./assets/logo/C.png" height="50px"/>  Classroom Management
+## Kaynaklar
+**Framework :** 
+
+<image src="https://laravel.com/img/logomark.min.svg"  width="75">
+<image src="https://laravel.com/img/logotype.min.svg"  width="300">
+
+<br/>
+<br/>
+
+**Language :**
+
+<image src="https://www.php.net/images/logos/php-logo.svg"  width="300">
+
 ## Proje İçeriği
  * Öğretmenlerin giriş ve kayıt olabilecekleri bir platform
  * Öğretmenlerin ders tanımlamaları yapabilecek
  * Sınav başlatablecek 
  * Öğrencilere ders notları paylşabilecek
  * Ders yoklaması alınabilecek
+
 
 ## Proje Amacı 
  * Sınıf konturolünü tamamen online bir şekilde yapaılması
