@@ -5,23 +5,63 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="row mx-md-n5">
+<a class="col px-md-5" href="lesson">
+      <div class="p-3 border bg-light title"><h5>Dersler</h5></div>
+      <div class="p-3 border bg-light ders"></div>
+  </a>
+    <a class="col px-md-5">
+      <div class="p-3 border bg-light title"><h5>Sınav</h5></div>
+      <div class="p-3 border bg-light sınav"></div>
+  </a>
 </div>
+<br/>
+<br/>
+
+<div class="row mx-md-n5">
+  <a class="col px-md-5">
+    <div class="p-3 border bg-light title"><h5>Sorubankası</h5></div>
+    <div class="p-3 border bg-light sorubankası"></div>
+
+  </a>
+  <a class="col px-md-5">
+    <div class="p-3 border bg-light title"><h5>Yoklama</h5></div>
+    <div class="p-3 border bg-light yoklama"></div>
+
+  </a>
+</div>
+
+<style>
+   a {
+     text-decoration: none;
+     color:black;
+    }
+  .title{
+    text-align: center;
+  }
+  .ders{
+        width: 100%;
+        height:300;
+        background-size:cover;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/classroom-management-7af8e.appspot.com/o/laravel%2Fdersler.png?alt=media&token=54012b5d-33b1-494c-9d95-d46be93c9bf4");
+    }
+    .sınav{
+        width: 100%;
+        height:300;
+        background-size:cover;  
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/classroom-management-7af8e.appspot.com/o/laravel%2Fshutterstock_2053107446-141220211227.png?alt=media&token=2edccab1-3b26-4d0d-ab3e-d3d83af2e101");
+    }
+    .sorubankası{
+        width: 100%;
+        height:300;
+        background-size:cover;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/classroom-management-7af8e.appspot.com/o/laravel%2Fsoru-bankasi-32.png?alt=media&token=904d7bbe-8b3a-4660-a4dc-f657f11c4477");
+    }
+    .yoklama{
+        width: 100%;
+        height:300;
+        background-size:cover;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/classroom-management-7af8e.appspot.com/o/laravel%2Fistockphoto-824226950-170667a.jpg?alt=media&token=6f4a5148-711e-4748-9c8a-f71ac6767348");
+    }
+</style>
 @endsection
