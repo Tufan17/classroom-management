@@ -14,20 +14,26 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('lesson.lesson');
+        $courses=Course::all();
+        // return $courses;
+        return view('lesson.lesson',compact("courses"));
         
     }
     public function add()
     {
-        return view('lesson.added_lesson');
+        $courses=Course::all();
+
+        return view('lesson.added_lesson',compact("courses"));
         
     }
 
     public function addlesson(Request $request){
-        return $request;
         Course::create([
-            "name"=>$request->name,
+            "name"=>$request->course,
         ]);
+        //compact("");
+        return redirect()->route("lesson");
+       
     }
     /**
      * Show the form for creating a new resource.
