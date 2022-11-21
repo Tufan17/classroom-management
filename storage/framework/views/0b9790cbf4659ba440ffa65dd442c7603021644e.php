@@ -55,9 +55,8 @@
                 <td><?php echo e($course["created_at"]); ?></td>
                 <th scope="col">
                     <i class="fa fa-gear"></i>
-                    <a onclick="view(<?php echo e($course['id']); ?>)"> 
+                    <a href='subject/<?php echo e($course["id"]); ?>'> 
                         <i class="fa fa-eye"></i>
-
                     </a>
                     <i class="fa fa-pencil"></i>
 
@@ -75,9 +74,9 @@
 </div>
 
 <script type="text/javascript">
-function view(id){
-    console.log(id);
-}
+        function view(id){
+            console.log(id);
+        }
 
 </script>
             
