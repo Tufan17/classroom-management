@@ -18,17 +18,22 @@
 
 
 <?php $__env->startSection('content'); ?>
-<form method="get" action="/lesson/add">
-    <?php echo csrf_field(); ?>
-    <div class="row">
-        <div class="col-md-8">
-            <input type="text" class="form-control" id="course" value="Ders Ekle" name="course" />
+<div class="row">
+    <form method="get" action="/lesson/add">
+        <?php echo csrf_field(); ?>
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="course" value="Ders Ekle" name="course" />
+            </div>
+            <div class="col-md-4 p-2 position-relative">
+                <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>
+                
+            </div>
         </div>
-        <div class="col-md-4 p-2 position-relative">
-            <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>
-        </div>
-    </div>
-</form>
+    </form>
+    
+
+</div>
 <div class="container-table">
     <table class="table">
         <thead class="thead-dark">
