@@ -19,7 +19,7 @@
 <br/>
 
 <div class="row mx-md-n5">
-  <a class="col px-md-5">
+  <a class="col px-md-5" href="questionbank">
     <div class="p-3 border bg-light title"><h5>Sorubankası</h5></div>
     <div class="p-3 border bg-light sorubankası"></div>
 
