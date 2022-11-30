@@ -14,28 +14,38 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@extends('layouts.app')
 
+@section('content')
+<a href="/lesson">
+    <h3>{{ $course["name"] }} Dersi</h3>
 
-<?php $__env->startSection('content'); ?>
-<form method="get" action="/lesson/add">
-    <?php echo csrf_field(); ?>
+</a>
+<form method="get" action="/subject/add">
+    @csrf
     <div class="row">
         <div class="col-md-8">
-            <input type="text" class="form-control" id="course" value="Ders Ekle" name="course" />
+            <input type="hidden" class="form-control"  value="{{ $coursesId }}" name="course_id" />
+
+            <input type="text" class="form-control" id="course" value="Konu Ekle" name="subject" />
         </div>
         <div class="col-md-4 p-2 position-relative">
             <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>
         </div>
     </div>
 </form>
+
+
 <div class="container-table">
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">İd</th>
-                <th scope="col">Dersin Adı</th>
+                <th scope="col">Konuun Adı</th>
                 <th scope="col">Oluşturlma Tarihi</th>
                 <th scope="col">Eylemler</th>
 
@@ -43,33 +53,26 @@
             </tr>
         </thead>
         <tbody>
-            <?php 
+            @php 
                 $i=1;
-                ?>
-            <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                @endphp
+            @foreach ($subjects as $subject)
             <tr>
                 <td scope="row"> 
-                <?php echo e($i++); ?></td>
-                <td><?php echo e($course["id"]); ?></td>
-                <td><?php echo e($course["name"]); ?></td>
-                <td><?php echo e($course["created_at"]); ?></td>
+                {{$i++}}</td>
+                <td>{{$subject["id"]}}</td>
+                <td>{{$subject["name"]}}</td>
+                <td>{{$subject["created_at"]}}</td>
                 <th scope="col">
-                    <div>
-                        <a href='/lesson/delete/<?php echo e($course["id"]); ?>'> 
-                            <i class="fa fa-trash"></i>
-                        </a>
-                        
-                    <a href='/subject/<?php echo e($course["id"]); ?>'> 
-                        <i class="fa fa-eye"></i>
+                    <a href='/subject/delete/{{$subject["id"]}}'> 
+                        <i class="fa fa-trash"></i>
                     </a>
-                    </div>
-
                     
                 </th>
 
             </tr>
         
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            @endforeach
             
         </tbody>
     </table>
@@ -77,46 +80,41 @@
 
 </div>
 
-<script type="text/javascript">
-        function view(id){
-            console.log(id);
+<style>
+
+    .col{
+        text-align: center;
+    }
+    h3{
+        margin-left: 10rem;
+        margin-bottom: 2rem;
+    }
+    .row {
+            margin-left: 10rem;
+            margin-right: 10rem;
+
+        }
+        i {
+            margin-left: 1rem;
+            
+            margin-right: 1rem;
+
         }
 
-</script>
-            
-            <style>
+        .button {
+            margin-right: 0cm;
+        }
 
-                .col{
-                    text-align: center;
-                }
-                .row {
-                        margin-left: 10rem;
-                        margin-right: 10rem;
-
-                    }
-                    i {
-                        margin-left: 1rem;
-                        
-                        margin-right: 1rem;
-
-                    }
-
-                    .button {
-                        margin-right: 0cm;
-                    }
-
-                    .container-table {
-                        margin-left: 5rem;
-                        margin-right: 5rem;
-                        /* width: 250rem; */
-                        border: solid 1px;
-                    }a {
+        .container-table {
+            margin-left: 5rem;
+            margin-right: 5rem;
+            /* width: 250rem; */
+            border: solid 1px;
+        }
+        a {
      text-decoration: none;
      color:black;
     }
 
-            </style>
-
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\bitirme\classroom-management\resources\views/lesson/lesson.blade.php ENDPATH**/ ?>
+</style>
+@endsection
