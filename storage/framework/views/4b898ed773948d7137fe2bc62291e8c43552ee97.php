@@ -24,20 +24,35 @@
         <h4 >
             Sorubankası
         </h4>
-        <button type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
-    </div>
-    <div>
-        <?php echo e($questionBank); ?>
+        <div>
+            <button type="button" class="btn btn-success" ><a href="/questionbank/add" class="white_a">Ekle</a></button>
+            <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
 
+        </div>
+    </div>
+    <div class="emptyContainer row">
+
+        <?php $__currentLoopData = $questionBanks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $questionBank): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+                
+            <span style='font-size:100px;'>&#128203;</span>
+              <h5 class="card-title"><?php echo e($questionBank["name"]); ?></h5>
+              <p class="card-text">Bu soru bankasına soru ekleyebilirsiniz veya silebilirsiniz</p>
+              <a href="/questionbank/addquestion/<?php echo e($questionBank["id"]); ?>" class="card-link btn btn-success">Soru Ekle</a>
+              <a  href="/questionbank/addquestion/<?php echo e($questionBank["id"]); ?>" class="btn btn-warning">Görüntüle</a>
+              <a href="/questionbank/delete/<?php echo e($questionBank["id"]); ?>" class="card-link btn btn-danger">Sil</a>
             </div>
           </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php if(count($questionBanks)==0): ?>
+        <div class="emptyContainer">
+            <h5 class="emptyTitle">
+                Herhangi bir soru bankası bulunamadı...
+            </h5>
+        </div>
+        <?php endif; ?>
     </div>
 
 </div>
@@ -52,18 +67,39 @@
 
 </script>
             
-            <style>
+<style>
 
-                .row {
-                    margin-left: 10rem;
-                    margin-right: 10rem;
-                }
-                a {
-                    text-decoration: none;
-                    color:black;
-                }
+    .card{
+        margin:3rem;
+        max-height: 21rem; 
+    }
+    .btn{
+        height: 2.5rem;
+    }
+    .row {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+    a {
+        text-decoration: none;
+        color:black;
+    }
+    .white_a{
+        color: beige;
+        padding: 5px;
+        text-align: start;
+    }
+    .emptyContainer {
+    width: 100rem;
+    height: 50rem;
+    text-align: center;
+    /* background-color: blue; */
+    }
+    .emptyTitle{
+        padding-top: 23rem;
+    }
 
-            </style>
+</style>
 
 <?php $__env->stopSection(); ?>
 

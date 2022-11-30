@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\QuestionBank;
 use Illuminate\Http\Request;
+use App\Models\Subject;
 
 class QuestionBankController extends Controller
 {
@@ -14,8 +15,12 @@ class QuestionBankController extends Controller
      */
     public function index()
     {
-        $questionBank=QuestionBank::all();
-        return view('questionbank.questionbank',compact('questionBank'));
+        $questionBanks=QuestionBank::all();
+        return view('questionbank.questionbank',compact('questionBanks'));
+    }
+    public function add()
+    {
+        return view('questionbank.add');
     }
 
     /**
@@ -23,9 +28,19 @@ class QuestionBankController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function addquestion($id)
     {
-        //
+        $questionBank=QuestionBank::find($id)->first();
+        $subjects=Subject::all();
+
+        return view('questionbank.question-add',compact('subjects','questionBank'));
+
+    }
+
+    public function delete($id)
+    {
+        QuestionBank::where("id", $id)->first()->delete();
+        return redirect()->route("questionbank");
     }
 
     /**
@@ -36,9 +51,16 @@ class QuestionBankController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        QuestionBank::create([
+            "name"=>$request->name,
+        ]);
+        return redirect()->route("questionbank");
     }
 
+    public function storequestion(Request $request)
+    {
+        return $request;
+    }
     /**
      * Display the specified resource.
      *
