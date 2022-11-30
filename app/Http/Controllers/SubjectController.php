@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\Models\Course;
+
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -12,10 +14,12 @@ class SubjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-       return Subject::all();
-
+        $subjects=Subject::where("course_id", $id)->get();
+        $course=Course::where("id", $id)->first();
+        $coursesId=$id;
+        return view('lesson.subject',compact('subjects','coursesId','course'));
     }
 
     /**
@@ -36,7 +40,11 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Subject::create([
+            "name"=>$request->subject,
+            "course_id"=>$request->course_id,
+        ]);
+        return redirect()->route("subject",$request->course_id);
     }
 
     /**
@@ -79,8 +87,10 @@ class SubjectController extends Controller
      * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $subject)
+    public function destroy($id)
     {
-        //
+        $subject=Subject::where("id", $id)->first();
+        $subject->delete();        
+        return redirect()->route("subject",$subject->course_id);
     }
 }

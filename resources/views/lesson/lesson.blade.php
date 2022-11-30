@@ -54,11 +54,15 @@
                 <td>{{$course["name"]}}</td>
                 <td>{{$course["created_at"]}}</td>
                 <th scope="col">
-                    <i class="fa fa-gear"></i>
-                    <a href='subject/{{$course["id"]}}'> 
+                    <div>
+                        <a href='/lesson/delete/{{$course["id"]}}'> 
+                            <i class="fa fa-trash"></i>
+                        </a>
+                        
+                    <a href='/subject/{{$course["id"]}}'> 
                         <i class="fa fa-eye"></i>
                     </a>
-                    <i class="fa fa-pencil"></i>
+                    </div>
 
                     
                 </th>
@@ -106,7 +110,10 @@
                         margin-right: 5rem;
                         /* width: 250rem; */
                         border: solid 1px;
-                    }
+                    }a {
+     text-decoration: none;
+     color:black;
+    }
 
             </style>
 
