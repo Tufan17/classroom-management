@@ -40,7 +40,7 @@
             <span style='font-size:100px;'>&#128203;</span>
               <h5 class="card-title">{{ $questionBank["name"] }}</h5>
               <p class="card-text">Bu soru bankasına soru ekleyebilirsiniz veya silebilirsiniz</p>
-              <a href="/questionbank/addquestion/{{$questionBank["id"]}}" class="card-link btn btn-success">Soru Ekle</a>
+              <a href="/questionbank/addquestion/{{$questionBank["id"]}}" class="card-link btn btn-success">Ekle</a>
               <a  href="/questionbank/addquestion/{{$questionBank["id"]}}" class="btn btn-warning">Görüntüle</a>
               <a href="/questionbank/delete/{{$questionBank["id"]}}" class="card-link btn btn-danger">Sil</a>
             </div>
