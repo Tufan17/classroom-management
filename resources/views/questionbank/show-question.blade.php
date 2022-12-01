@@ -22,47 +22,12 @@
 <div class="row">
     <div class=" d-flex justify-content-between">
         <h4 >
-            {{ $questionBank["name"] }} Soru Ekleme Sayfası
+            {{ $questionBank["name"] }} Soruları
         </h4>
         <div>
             <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
         </div>
     </div>
-    <form action="/questionbank/storequestion">
-        <input type="hidden" name="questionbank_id" value="{{ $id }}"/>
-            <p>Sorunun Başlığını Ekleyiniz</p>
-            <input type="text"  name="title" class="form-control" required>
-            <p>A Şıkkını Giriniz</p>
-            <div class="d-flex ">
-                <div class="p-2"><input type="radio" name="correct" value="A" required></div>
-                <input type="text" value="" name="A" class="form-control" required>
-            </div>
-            <p>B Şıkkını Giriniz</p>
-            <div class="d-flex ">
-                <div class="p-2"><input type="radio" name="correct" value="B" required></div>
-                <input type="text" value="" name="B" class="form-control" required>
-            </div>
-            <p>C Şıkkını Giriniz</p>
-            <div class="d-flex ">
-                <div class="p-2"><input type="radio" name="correct" value="C" required></div>
-                <input type="text" value="" name="C" class="form-control" required>
-            </div>
-            <p>D Şıkkını Giriniz</p>
-            <div class="d-flex">
-                <div class="p-2"><input type="radio" name="correct" value="D" required></div>
-                <input type="text" value="" name="D" class="form-control" required>
-            </div>
-            <p>Konu Seçiniz</p>
-            <select name="subject" value="" class="form-select" aria-label="Default select example" required>
-                @foreach ($subjects as $subject)
-                <option name="subject_id" value='{{ $subject["id"] }}' >{{$subject["name"] }}</option>                   
-                @endforeach
-              </select>
-        
-        <div class="text-center">
-            <button type="submit"  class="btn btn-success">Kaydet</button>
-          </div>
-      </form>
 
 
 </div>

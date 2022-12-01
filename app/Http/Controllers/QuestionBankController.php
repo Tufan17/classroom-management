@@ -33,7 +33,7 @@ class QuestionBankController extends Controller
         $questionBank=QuestionBank::find($id)->first();
         $subjects=Subject::all();
 
-        return view('questionbank.question-add',compact('subjects','questionBank'));
+        return view('questionbank.question-add',compact('id','subjects','questionBank'));
 
     }
 
@@ -57,10 +57,7 @@ class QuestionBankController extends Controller
         return redirect()->route("questionbank");
     }
 
-    public function storequestion(Request $request)
-    {
-        return $request;
-    }
+    
     /**
      * Display the specified resource.
      *

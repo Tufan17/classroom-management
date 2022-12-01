@@ -26,7 +26,10 @@ Route::get('/questionbank/delete/{id}', [App\Http\Controllers\QuestionBankContro
 Route::get('/questionbank/questions/{id}', [App\Http\Controllers\QuestionBankController::class, 'addquestion'])->name('questionbankquestions');
 Route::get('/questionbank/store', [App\Http\Controllers\QuestionBankController::class, 'store'])->name('questionbankstore');
 Route::get('/questionbank/addquestion/{id}', [App\Http\Controllers\QuestionBankController::class, 'addquestion'])->name('questionbankaddquestion');
-Route::get('/questionbank/storequestion', [App\Http\Controllers\QuestionBankController::class, 'storequestion'])->name('storequestion');
+
+Route::get('/questionbank/storequestion', [App\Http\Controllers\QuestionController::class, 'storequestion'])->name('storequestion');
+Route::get('/question/{id}', [App\Http\Controllers\QuestionController::class, 'index'])->name('showquestion');
+
 
 
 

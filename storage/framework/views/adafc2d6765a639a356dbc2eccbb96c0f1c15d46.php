@@ -15,54 +15,19 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@extends('layouts.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <div class="row">
     <div class=" d-flex justify-content-between">
         <h4 >
-            {{ $questionBank["name"] }} Soru Ekleme Sayfası
+            <?php echo e($questionBank["name"]); ?> Soruları
         </h4>
         <div>
             <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
         </div>
     </div>
-    <form action="/questionbank/storequestion">
-        <input type="hidden" name="questionbank_id" value="{{ $id }}"/>
-            <p>Sorunun Başlığını Ekleyiniz</p>
-            <input type="text"  name="title" class="form-control" required>
-            <p>A Şıkkını Giriniz</p>
-            <div class="d-flex ">
-                <div class="p-2"><input type="radio" name="correct" value="A" required></div>
-                <input type="text" value="" name="A" class="form-control" required>
-            </div>
-            <p>B Şıkkını Giriniz</p>
-            <div class="d-flex ">
-                <div class="p-2"><input type="radio" name="correct" value="B" required></div>
-                <input type="text" value="" name="B" class="form-control" required>
-            </div>
-            <p>C Şıkkını Giriniz</p>
-            <div class="d-flex ">
-                <div class="p-2"><input type="radio" name="correct" value="C" required></div>
-                <input type="text" value="" name="C" class="form-control" required>
-            </div>
-            <p>D Şıkkını Giriniz</p>
-            <div class="d-flex">
-                <div class="p-2"><input type="radio" name="correct" value="D" required></div>
-                <input type="text" value="" name="D" class="form-control" required>
-            </div>
-            <p>Konu Seçiniz</p>
-            <select name="subject" value="" class="form-select" aria-label="Default select example" required>
-                @foreach ($subjects as $subject)
-                <option name="subject_id" value='{{ $subject["id"] }}' >{{$subject["name"] }}</option>                   
-                @endforeach
-              </select>
-        
-        <div class="text-center">
-            <button type="submit"  class="btn btn-success">Kaydet</button>
-          </div>
-      </form>
 
 
 </div>
@@ -131,4 +96,6 @@
 
 </style>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\bitirme\classroom-management\resources\views/questionbank/show-question.blade.php ENDPATH**/ ?>
