@@ -29,6 +29,7 @@
         </div>
     </div>
     <form action="/questionbank/storequestion">
+        <input type="hidden" name="questionbank_id" value="{{ $id }}"/>
             <p>Sorunun Başlığını Ekleyiniz</p>
             <input type="text"  name="title" class="form-control" required>
             <p>A Şıkkını Giriniz</p>

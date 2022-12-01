@@ -22,42 +22,49 @@
 <div class="row">
     <div class=" d-flex justify-content-between">
         <h4 >
-            Sorubankası
+            {{ $questionBank["name"] }} Soruları
         </h4>
         <div>
-            <button type="button" class="btn btn-success" ><a href="/questionbank/add" class="white_a">Ekle</a></button>
+            <button type="button" class="btn btn-success" ><a href="/questionbank/addquestion/{{$questionBank["id"]}}" class="white_a">Ekle</a></button>
+
             <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
-
         </div>
     </div>
-    <div class="emptyContainer row">
-
-        @foreach ($questionBanks as $questionBank)
-            
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                
-            <span style='font-size:100px;'>&#128203;</span>
-              <h5 class="card-title">{{ $questionBank["name"] }}</h5>
-              <p class="card-text">Bu soru bankasına soru ekleyebilirsiniz veya silebilirsiniz</p>
-              <a href="/questionbank/addquestion/{{$questionBank["id"]}}" class="card-link btn btn-success">Ekle</a>
-              <a  href="/question/{{$questionBank["id"]}}" class="btn btn-warning">Görüntüle</a>
-              <a href="/questionbank/delete/{{$questionBank["id"]}}" class="card-link btn btn-danger">Sil</a>
-            </div>
-          </div>
-        @endforeach
-        @if (count($questionBanks)==0)
-        <div class="emptyContainer">
-            <h5 class="emptyTitle">
-                Herhangi bir soru bankası bulunamadı...
-            </h5>
-        </div>
-        @endif
+</div>
+<?php
+$i=0;
+?>
+<div class="ml-5 mr-5 mt-5">
+    @foreach ($questions as $question)
+<div class="card mr-1 ml-2 mb-5 float-left" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><strong>{{ $i=1+$i;  }}) </strong>{{ $question->title }}</h5>
+      <p class="card-text"><strong>A-</strong>{{ $question->A }}</p>
+      <p class="card-text"><strong>B-</strong>{{ $question->B }}</p>
+      <p class="card-text"><strong>C-</strong>{{ $question->C }}</p>
+      <p class="card-text"><strong>D-</strong>{{ $question->D }}</p>
+      <p class="card-text">Doğru cevap <strong>{{ $question->correct }}</strong> şıkkı.</p>
+     <div class="ml-5 mr-5">
+        <a href="#" class="btn btn-success">Düzenle</a>
+        <a href="/deletequestion/{{$question->id  }}" class="btn btn-danger">Sil</a>
+     </div>
     </div>
+  </div>
 
+@endforeach
 </div>
 
 
+<style>
+    input{
+        flex-direction: column;
+        margin: 2rem;
+        float: bottom;
+    }
+    p{
+        margin-left: 2rem;
+    }
+</style>
 
 
 <script type="text/javascript">
@@ -68,17 +75,16 @@
 </script>
             
 <style>
-
-    .card{
-        margin:3rem;
-        max-height: 21rem; 
-    }
     .btn{
         height: 2.5rem;
     }
+    .form-select{
+        margin: 2rem;
+
+    }
     .row {
-        margin-left: 10rem;
-        margin-right: 10rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
     a {
         text-decoration: none;
@@ -89,15 +95,8 @@
         padding: 5px;
         text-align: start;
     }
-    .emptyContainer {
-    width: 100rem;
-    height: 50rem;
-    text-align: center;
-    /* background-color: blue; */
-    }
-    .emptyTitle{
-        padding-top: 23rem;
-    }
+    
+    
 
 </style>
 
