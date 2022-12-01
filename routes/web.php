@@ -32,6 +32,7 @@ Route::get('/question/{id}', [App\Http\Controllers\QuestionController::class, 'i
 Route::get('/deletequestion/{id}', [App\Http\Controllers\QuestionController::class, 'deletequestion'])->name('deletequestion');
 
 
+Route::get('/exam', [App\Http\Controllers\ExamController::class, 'index'])->name('exam');
 
 
 

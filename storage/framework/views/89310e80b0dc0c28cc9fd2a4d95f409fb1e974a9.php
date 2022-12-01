@@ -10,7 +10,7 @@
       <div class="p-3 border bg-light title"><h5>Dersler</h5></div>
       <div class="p-3 border bg-light ders"></div>
   </a>
-    <a class="col px-md-5">
+    <a class="col px-md-5" href="exam">
       <div class="p-3 border bg-light title"><h5>Sınav</h5></div>
       <div class="p-3 border bg-light sınav"></div>
   </a>
