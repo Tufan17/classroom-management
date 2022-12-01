@@ -35,8 +35,17 @@ class QuestionController extends Controller
             "D"=>$request->D,
         ]);
        
-        return redirect()->route("questionbankaddquestion",$id);
+        return redirect()->route("showquestion",$request->questionbank_id);
     }
+
+    public function deletequestion($id){
+        $question=Question::find($id)->first();
+        $question->delete();
+        return redirect()->route("showquestion",$question->questionbank_id);
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

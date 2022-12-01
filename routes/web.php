@@ -29,6 +29,8 @@ Route::get('/questionbank/addquestion/{id}', [App\Http\Controllers\QuestionBankC
 
 Route::get('/questionbank/storequestion', [App\Http\Controllers\QuestionController::class, 'storequestion'])->name('storequestion');
 Route::get('/question/{id}', [App\Http\Controllers\QuestionController::class, 'index'])->name('showquestion');
+Route::get('/deletequestion/{id}', [App\Http\Controllers\QuestionController::class, 'deletequestion'])->name('deletequestion');
+
 
 
 

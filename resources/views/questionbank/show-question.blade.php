@@ -25,32 +25,36 @@
             {{ $questionBank["name"] }} Soruları
         </h4>
         <div>
+            <button type="button" class="btn btn-success" ><a href="/questionbank/addquestion/{{$questionBank["id"]}}" class="white_a">Ekle</a></button>
+
             <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
         </div>
     </div>
+</div>
+<?php
+$i=0;
+?>
+<div class="ml-5 mr-5 mt-5">
+    @foreach ($questions as $question)
+<div class="card mr-1 ml-2 mb-5 float-left" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><strong>{{ $i=1+$i;  }}) </strong>{{ $question->title }}</h5>
+      <p class="card-text"><strong>A-</strong>{{ $question->A }}</p>
+      <p class="card-text"><strong>B-</strong>{{ $question->B }}</p>
+      <p class="card-text"><strong>C-</strong>{{ $question->C }}</p>
+      <p class="card-text"><strong>D-</strong>{{ $question->D }}</p>
+      <p class="card-text">Doğru cevap <strong>{{ $question->correct }}</strong> şıkkı.</p>
+     <div class="ml-5 mr-5">
+        <a href="#" class="btn btn-success">Düzenle</a>
+        <a href="/deletequestion/{{$question->id  }}" class="btn btn-danger">Sil</a>
+     </div>
+    </div>
+  </div>
 
-
+@endforeach
 </div>
 
-<script>
-    var id =0;
-    function clicksd(){
-        id++;
-        const choice = document.getElementById('choice');
-        const input = document.createElement('input');
-        input.name = `choice-${id}`;
-        choice.appendChild(input);
-    }
-</script>
-<script>
-    $('#submit-btn').click(function () {
-        $.ajax({
-            url: '@Url.Action("Post","/question_new_add")',
-            type: 'POST',
-            dataType: 'json'
-        })
-    })
-</script>
+
 <style>
     input{
         flex-direction: column;
