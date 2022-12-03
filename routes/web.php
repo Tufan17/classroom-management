@@ -33,6 +33,13 @@ Route::get('/deletequestion/{id}', [App\Http\Controllers\QuestionController::cla
 
 
 Route::get('/exam', [App\Http\Controllers\ExamController::class, 'index'])->name('exam');
+Route::get('/exam/add', [App\Http\Controllers\ExamController::class, 'create'])->name('examadd');
+Route::get('/exam/store', [App\Http\Controllers\ExamController::class, 'store'])->name('examstore');
+Route::get('/exam/addquestion/{id}', [App\Http\Controllers\ExamController::class, 'addquestion'])->name('addquestion');
+Route::get('/exam/delete/{id}', [App\Http\Controllers\ExamController::class, 'deleteexam'])->name('deleteexam');
+
+
+
 
 
 
