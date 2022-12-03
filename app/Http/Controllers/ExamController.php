@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exam;
+use App\Models\Question;
+
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -14,9 +16,12 @@ class ExamController extends Controller
      */
     public function index()
     {
-        return view('exam.exam');
+        $exams=Exam::all();
+
+        return view('exam.exam',compact("exams"));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +29,7 @@ class ExamController extends Controller
      */
     public function create()
     {
-        //
+       return view('exam.exam-add'); 
     }
 
     /**
@@ -35,7 +40,30 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Exam::create([
+            "name"=>$request->name,
+            "status"=>"loading",
+            ]);
+        return redirect()->route("exam");
+    }
+
+    public function deleteexam($id){
+        Exam::find($id)->delete();
+        return redirect()->route("exam");
+        
+    }
+
+    public function addquestion($id){
+        $exam=Exam::find($id)->first();
+        $questions=Question::all();
+        return view("exam.question-add",compact("exam","questions"));
+        
+    }
+
+    public function published($id){
+        // return $id;
+        Exam::find($id)->update(["status"=>"published"]);
+        return redirect()->route("exam");
     }
 
     /**
