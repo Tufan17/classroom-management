@@ -42,13 +42,18 @@
               <?php if( $exam["status"]=="loading"): ?>
                   <p class="card-text">Sınav hazırlanıyor...</p>
                   <a href="/exam/addquestion/<?php echo e($exam["id"]); ?>" class="card-link btn btn-success">Ekle</a>
-                  <a  href="/question/published/<?php echo e($exam["id"]); ?>" class="btn btn-warning">Yayınla</a>
+                  <a  href="/exam/published/<?php echo e($exam["id"]); ?>" class="btn btn-warning">Yayınla</a>
+                  <a  href="/exam/<?php echo e($exam["id"]); ?>" class="btn btn-secondary">Görüntüle</a>
                   
                   <?php endif; ?>
               
             
               <?php if($exam["status"]=="published"): ?>
-              <a  href="/question/<?php echo e($exam["id"]); ?>" class="btn btn-warning">Görüntüle</a>
+              <p class="card-text">Sınavınız yayınlandı.</p>
+
+              <a href="/exam/finished/<?php echo e($exam["id"]); ?>" class="card-link btn btn-success">Bitir</a>
+            
+              <a  href="/exam/<?php echo e($exam["id"]); ?>" class="btn btn-warning">Görüntüle</a>
               <?php endif; ?>
 
               <a href="/exam/delete/<?php echo e($exam["id"]); ?>" class="card-link btn btn-danger">Sil</a>
@@ -77,7 +82,9 @@
 </script>
             
 <style>
-
+    .btn{
+        margin: 1px;
+    }
     .card{
         margin:3rem;
         max-height: 21rem; 

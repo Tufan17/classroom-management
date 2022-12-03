@@ -37,6 +37,13 @@ Route::get('/exam/add', [App\Http\Controllers\ExamController::class, 'create'])-
 Route::get('/exam/store', [App\Http\Controllers\ExamController::class, 'store'])->name('examstore');
 Route::get('/exam/addquestion/{id}', [App\Http\Controllers\ExamController::class, 'addquestion'])->name('addquestion');
 Route::get('/exam/delete/{id}', [App\Http\Controllers\ExamController::class, 'deleteexam'])->name('deleteexam');
+Route::get('/exam/published/{id}', [App\Http\Controllers\ExamController::class, 'published'])->name('publishedexam');
+
+
+Route::get('/exam/{id}', [App\Http\Controllers\ExamQuestionsController::class, 'index'])->name('showexam');
+Route::get('/examquestion/delete/{id}', [App\Http\Controllers\ExamQuestionsController::class, 'delete'])->name('deleetexamquestion');
+Route::get('/examquestions/store', [App\Http\Controllers\ExamQuestionsController::class, 'store'])->name('storeexam');
+
 
 
 

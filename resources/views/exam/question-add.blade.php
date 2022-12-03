@@ -25,7 +25,7 @@
             {{ $exam["name"] }}
         </h4>
         <div>
-            <button type="button" class="btn btn-success" ><a href="/exam/addquestion/{{$exam["id"]}}" class="white_a">Ekle</a></button>
+            <button type="button" class="btn btn-success" ><a href="/exam/{{$exam["id"]}}" class="white_a">Görüntüle</a></button>
 
             <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
         </div>
@@ -44,9 +44,12 @@ $i=0;
       <p class="card-text"><strong>C-</strong>{{ $question->C }}</p>
       <p class="card-text"><strong>D-</strong>{{ $question->D }}</p>
       <p class="card-text">Doğru cevap <strong>{{ $question->correct }}</strong> şıkkı.</p>
-     <div class="ml-5 mr-5">
-        <a href="#" class="btn btn-success ml-5">Ekle</a>
-     </div>
+     <form action="/examquestions/store" class="ml-5 mr-5">
+        <input type="hidden" name="question_id" value="{{ $question->id }}"/>
+        <input type="hidden" name="exam_id" value="{{ $exam->id }}"/>
+
+        <button type="submit" class="btn btn-success ml-5">Ekle</button>
+     </form>
     </div>
   </div>
   

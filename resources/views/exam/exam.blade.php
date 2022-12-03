@@ -43,11 +43,14 @@
                   <p class="card-text">Sınav hazırlanıyor...</p>
                   <a href="/exam/addquestion/{{$exam["id"]}}" class="card-link btn btn-success">Ekle</a>
                   <a  href="/exam/published/{{$exam["id"]}}" class="btn btn-warning">Yayınla</a>
+                  <a  href="/exam/{{$exam["id"]}}" class="btn btn-secondary">Görüntüle</a>
                   
                   @endif
               {{-- <a href="/exam/addquestion/{{$exam["id"]}}" class="card-link btn btn-success">Ekle</a> --}}
             
               @if ($exam["status"]=="published")
+              <p class="card-text">Sınavınız yayınlandı.</p>
+
               <a href="/exam/finished/{{$exam["id"]}}" class="card-link btn btn-success">Bitir</a>
             
               <a  href="/exam/{{$exam["id"]}}" class="btn btn-warning">Görüntüle</a>
@@ -79,7 +82,9 @@
 </script>
             
 <style>
-
+    .btn{
+        margin: 1px;
+    }
     .card{
         margin:3rem;
         max-height: 21rem; 

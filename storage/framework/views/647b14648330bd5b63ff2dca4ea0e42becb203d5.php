@@ -22,11 +22,10 @@
 <div class="row">
     <div class=" d-flex justify-content-between">
         <h4 >
-            <?php echo e($exam["name"]); ?>
-
+            <?php echo e($exam["name"]); ?> Soruları
         </h4>
         <div>
-            <button type="button" class="btn btn-success" ><a href="/exam/<?php echo e($exam["id"]); ?>" class="white_a">Görüntüle</a></button>
+            <button type="button" class="btn btn-success" ><a href="/exam/addquestion/<?php echo e($exam["id"]); ?>" class="white_a">Ekle</a></button>
 
             <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
         </div>
@@ -45,17 +44,15 @@ $i=0;
       <p class="card-text"><strong>C-</strong><?php echo e($question->C); ?></p>
       <p class="card-text"><strong>D-</strong><?php echo e($question->D); ?></p>
       <p class="card-text">Doğru cevap <strong><?php echo e($question->correct); ?></strong> şıkkı.</p>
-     <form action="/examquestions/store" class="ml-5 mr-5">
-        <input type="hidden" name="question_id" value="<?php echo e($question->id); ?>"/>
-        <input type="hidden" name="exam_id" value="<?php echo e($exam->id); ?>"/>
-
-        <button type="submit" class="btn btn-success ml-5">Ekle</button>
-     </form>
+     <div class="ml-5">
+        <a href="/examquestion/delete/<?php echo e($question->id); ?>" class="btn btn-danger">Sil</a>
+     </div>
     </div>
   </div>
-  
+
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
+
 
 <style>
     input{
@@ -104,4 +101,4 @@ $i=0;
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\bitirme\classroom-management\resources\views/exam/question-add.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\bitirme\classroom-management\resources\views/exam/show-questions.blade.php ENDPATH**/ ?>

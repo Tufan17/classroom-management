@@ -60,6 +60,12 @@ class ExamController extends Controller
         
     }
 
+    public function published($id){
+        // return $id;
+        Exam::find($id)->update(["status"=>"published"]);
+        return redirect()->route("exam");
+    }
+
     /**
      * Display the specified resource.
      *
