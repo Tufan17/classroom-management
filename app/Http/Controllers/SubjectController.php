@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use App\Models\Course;
+use App\Models\Question;
+
 
 use Illuminate\Http\Request;
 
@@ -53,9 +55,13 @@ class SubjectController extends Controller
      * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
+    public function question($id)
     {
-        //
+    //  return $id;
+    $subject = Subject::where("id",$id)->first();
+    $questions = Question::where("subject_id",$id)->get();
+    //  return $questions;
+     return view("lesson.question",compact("subject", "questions"));
     }
 
     /**

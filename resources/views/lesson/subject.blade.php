@@ -67,6 +67,8 @@
                     <a href='/subject/delete/{{$subject["id"]}}'> 
                         <i class="fa fa-trash"></i>
                     </a>
+                    <a href='/subject/question/{{$subject["id"]}}'> 
+                        <i class="fa fa-eye"></i>
                     
                 </th>
 
