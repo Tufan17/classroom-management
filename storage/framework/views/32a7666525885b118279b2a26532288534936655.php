@@ -55,6 +55,12 @@
             
               <a  href="/exam/<?php echo e($exam["id"]); ?>" class="btn btn-warning">Görüntüle</a>
               <?php endif; ?>
+              <?php if($exam["status"]=="finished"): ?>
+              <p class="card-text">Sınav sonlandırıldı.</p>
+
+              <a href="/result/<?php echo e($exam["id"]); ?>" class="card-link btn btn-success">Sonuçlar</a>
+            
+              <?php endif; ?>
 
               <a href="/exam/delete/<?php echo e($exam["id"]); ?>" class="card-link btn btn-danger">Sil</a>
             </div>

@@ -54,7 +54,8 @@ class ExamController extends Controller
     }
 
     public function addquestion($id){
-        $exam=Exam::find($id)->first();
+        $exam=Exam::where("id",$id)->first();
+        // return $exam;
         $questions=Question::all();
         return view("exam.question-add",compact("exam","questions"));
         
@@ -63,6 +64,11 @@ class ExamController extends Controller
     public function published($id){
         // return $id;
         Exam::find($id)->update(["status"=>"published"]);
+        return redirect()->route("exam");
+    }
+    public function finished($id){
+        // return $id;
+        Exam::find($id)->update(["status"=>"finished"]);
         return redirect()->route("exam");
     }
 

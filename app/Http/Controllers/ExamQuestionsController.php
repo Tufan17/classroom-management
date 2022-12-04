@@ -17,11 +17,11 @@ class ExamQuestionsController extends Controller
      */
     public function index($id)
     {
-        $exam=Exam::find($id)->first();
+        $exam=Exam::where("id",$id)->first();
         $questions_id=ExamQuestions::where("exam_id",$id)->pluck("question_id");
         $questions=[];
         foreach($questions_id as $id){
-          $question=Question::find($id)->first();
+          $question=Question::where("id",$id)->first();
           array_push($questions,$question);
         }
         //  return $questions;        

@@ -55,6 +55,12 @@
             
               <a  href="/exam/{{$exam["id"]}}" class="btn btn-warning">Görüntüle</a>
               @endif
+              @if ($exam["status"]=="finished")
+              <p class="card-text">Sınav sonlandırıldı.</p>
+
+              <a href="/result/{{$exam["id"]}}" class="card-link btn btn-success">Sonuçlar</a>
+            
+              @endif
 
               <a href="/exam/delete/{{$exam["id"]}}" class="card-link btn btn-danger">Sil</a>
             </div>
