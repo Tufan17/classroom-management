@@ -16,6 +16,7 @@ Route::get('/lesson/add', [App\Http\Controllers\CourseController::class, 'addles
 
 
 Route::get('/subject/add', [App\Http\Controllers\SubjectController::class, 'store'])->name('subjectadd');
+Route::get('/subject/question/{id}', [App\Http\Controllers\SubjectController::class, 'question'])->name('subjectquestion');
 Route::get('/subject/delete/{id}', [App\Http\Controllers\SubjectController::class, 'destroy'])->name('subjectdelete');
 Route::get('/subject/{id}', [App\Http\Controllers\SubjectController::class, 'index'])->name('subject');
 
