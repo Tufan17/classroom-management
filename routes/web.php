@@ -51,6 +51,9 @@ Route::get('/result/store', [App\Http\Controllers\ExamResultController::class, '
 Route::get('/result/{id}', [App\Http\Controllers\ExamResultController::class, 'result'])->name('resultexam');
 
 
+Route::get('/attendance', [App\Http\Controllers\AttendanceController::class, 'index'])->name('attendance');
+Route::get('/attendance/lesson/{id}', [App\Http\Controllers\AttendanceController::class, 'lesson'])->name('attendancelesson');
+
 
 
 
