@@ -15,7 +15,7 @@ class QuestionController extends Controller
      */
     public function index($id)
     {
-        $questionBank = QuestionBank::find($id)->first();
+        $questionBank = QuestionBank::where("id",$id)->first();
         $questions=Question::where("questionbank_id",$id)->get();
         // return $questions;
         return view('questionbank.show-question',compact('questions','questionBank'));
