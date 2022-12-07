@@ -30,7 +30,7 @@ class QuestionBankController extends Controller
      */
     public function addquestion($id)
     {
-        $questionBank=QuestionBank::find($id)->first();
+        $questionBank=QuestionBank::where("id",$id)->first();
         $subjects=Subject::all();
 
         return view('questionbank.question-add',compact('id','subjects','questionBank'));
