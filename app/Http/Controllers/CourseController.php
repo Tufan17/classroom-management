@@ -44,7 +44,9 @@ class CourseController extends Controller
     {
         //
     }
-
+    public function lessons(){
+        return Course::all();
+    }
     /**
      * Store a newly created resource in storage.
      *

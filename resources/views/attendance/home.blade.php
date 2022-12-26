@@ -23,8 +23,10 @@
         Yoklama
     </h4>
     <div>
+      
         <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
     </div>
+</div>
 </div>
     <div class="row">
         @foreach ($lessons as $lesson)
@@ -45,6 +47,10 @@
     .tab_title{
         margin-left: 10rem;
         margin-right: 10rem;        
+    }
+    .btn{
+        height: 2.2rem;
+        align-content: center;
     }
     .card{
         margin-right: 2%;

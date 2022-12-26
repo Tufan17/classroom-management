@@ -24,11 +24,71 @@
     </h4>
     <div>
         <button onclick="history.back();" type="button" class="btn btn-warning" style="color: beige"><i class="fa fa-mail-reply"></i></button>
-    </div>
+    </div>    
+</div>
+<div class=" d-flex justify-content-between tab_title">
+    <div></div>
+    <form class="row" action="/attendance/lesson/{{ $lesson->id }}">
+        <input class="card" type="text" name="day" value="{{ $day }}"/>
+        <select class="card" name="month" value="" class="form-select" aria-label="Default select example" required>
+            @foreach ($months as $month)
+            <option class="card" name="month" value='{{ $month }}' >{{$month }}</option>                   
+            @endforeach
+          </select>
+        <input class="card" type="text" name="year" value="{{ $year }}"/>
+        
+            <button class="btn btn-warning btn-send"     type="submit">Gönder</button>
+    </form>
+</div>
+
+<div class="container-table">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                {{-- <th scope="col">İd</th> --}}
+                <th scope="col">Öğrencinin Adı</th>
+                {{-- <th scope="col">Tarihi</th> --}}
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach ($users as $user)
+            <tr>
+                <td scope="row"> 
+                {{$user["sequence"]}}</td>
+                {{-- <td>{{$subject["id"]}}</td> --}}
+                <td>{{$user["name"]}}</td>
+                {{-- <td>{{$subject["created_at"]}}</td> --}}
+
+
+            </tr>
+        
+            @endforeach
+            
+        </tbody>
+    </table>
+
+
+</div>
 
 
 
 <style>
+    .card{
+        float: left;
+    }
+    .container-table{
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+    .btn-send{
+        color:white;
+        float: left;
+        width: 5rem;
+    }
     .tab_title{
         margin-left: 10rem;
         margin-right: 10rem;        
