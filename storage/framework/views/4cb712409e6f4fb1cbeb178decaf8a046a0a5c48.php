@@ -83,4 +83,4 @@
     </div>
 </body>
 </html>
-<?php /**PATH F:\bitirme\classroom-management\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\tufan\AndroidStudioProjects\c\classroom-management\resources\views/layouts/app.blade.php ENDPATH**/ ?>

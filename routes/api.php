@@ -20,7 +20,10 @@ use App\Http\Controllers\CourseController;
 Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 
-Route::post('/lessons', [CourseController::class, 'lessons']);
+Route::get('/lessons', [CourseController::class, 'lessons']);
+Route::get('/lessons/{id}', [CourseController::class, 'subjects']);
+Route::get('/subject/{id}', [CourseController::class, 'question']);
+
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

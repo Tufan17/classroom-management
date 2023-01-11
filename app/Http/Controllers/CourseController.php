@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Subject;
 use Illuminate\Http\Request;
-
+use App\Models\Question;
 class CourseController extends Controller
 {
     /**
@@ -46,6 +47,13 @@ class CourseController extends Controller
     }
     public function lessons(){
         return Course::all();
+    }
+
+    public function subjects($id){
+        return Subject::where("course_id",$id)->get();
+    }
+    public function question($id){
+        return Question::where("subject_id",$id)->get();
     }
     /**
      * Store a newly created resource in storage.
