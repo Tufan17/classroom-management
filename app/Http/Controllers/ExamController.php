@@ -21,6 +21,14 @@ class ExamController extends Controller
         return view('exam.exam',compact("exams"));
     }
 
+
+    public function allExam()
+    {
+        return Exam::where("status","published")->get();
+
+        
+    }
+
     
     /**
      * Show the form for creating a new resource.

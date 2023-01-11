@@ -6,6 +6,9 @@ use App\Http\Controllers\Auth\AuthController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\AttendanceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,7 @@ Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/lessons', [CourseController::class, 'lessons']);
 Route::get('/lessons/{id}', [CourseController::class, 'subjects']);
 Route::get('/subject/{id}', [CourseController::class, 'question']);
+Route::get('/exam', [ExamController::class, 'alLExam']);
 
 
 

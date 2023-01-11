@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -112,6 +113,9 @@ class AttendanceController extends Controller
         }
     }
 
+    public function lessonAttendance(){
+        return Course::all();
+    }
     /**
      * Display the specified resource.
      *
