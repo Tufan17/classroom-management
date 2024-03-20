@@ -17,10 +17,10 @@ class CourseController extends Controller
     {
         $active =$request->active ?intval($request->active) : 1;
         $count = Course::count();
-        $page = ceil($count / 5);
+        $page = ceil($count / 10);
         $active = $active > $page ? intval($page) : $active;
-        $offset = ($active - 1) * 5; 
-        $courses = Course::skip($offset)->take(5)->get();
+        $offset = ($active - 1) * 10;
+        $courses = Course::skip($offset)->take(10)->get();
         return view('lesson.lesson',compact("courses","page","active"));
     }
     public function add()
@@ -32,6 +32,9 @@ class CourseController extends Controller
     }
 
     public function addlesson(Request $request){
+        $request->validate([
+            "course" => "required|max:255"
+        ]);
         Course::create([
             "name"=>$request->course,
         ]);

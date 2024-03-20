@@ -22,7 +22,7 @@
     <?php echo csrf_field(); ?>
     <div class="row">
         <div class="col-md-8">
-            <input type="text" class="form-control" id="course" placeholder="Ders Ekle" required name="course" />
+            <input type="text" class="form-control" id="course" placeholder="Ders Ekle" required name="course" maxlength="255" />
         </div>
         <div class="col-md-4 p-2 position-relative">
             <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>
@@ -37,7 +37,7 @@
                 <th scope="col">İd</th>
                 <th scope="col">Dersin Adı</th>
                 <th scope="col">Oluşturlma Tarihi</th>
-                <th scope="col">Eylemler</th>
+                <th scope="col-2">Eylemler</th>
 
 
             </tr>
@@ -53,8 +53,7 @@
                 <td><?php echo e($course["id"]); ?></td>
                 <td><?php echo e($course["name"]); ?></td>
                 <td><?php echo e($course["created_at"]); ?></td>
-                <th scope="col">
-                    <div>
+                <th scope="col-2" style="min-width: 130px">
                         <a href='/lesson/delete/<?php echo e($course["id"]); ?>'>
                             <i class="fa fa-trash"></i>
                         </a>
@@ -62,7 +61,6 @@
                     <a href='/subject/<?php echo e($course["id"]); ?>'>
                         <i class="fa fa-eye"></i>
                     </a>
-                    </div>
 
 
                 </th>

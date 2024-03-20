@@ -39,6 +39,33 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">Soyisim</label>
+
+                                <div class="col-md-6">
+                                    <input id="surname" type="text" class="form-control <?php $__errorArgs = ['surname'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" name="surname" value="<?php echo e(old('surname')); ?>" required autocomplete="surname" autofocus>
+
+                                    <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong><?php echo e($message); ?></strong>
+                                        </span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                            </div>
 
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</Address></label>
@@ -114,7 +141,7 @@ unset($__errorArgs, $__bag); ?>
                         </form>
                         <div class="d-flex align-items-end flex-column mb-3">
                             <div class="mb-auto p-2"><h5>Hesabınız var mı? <a href="/login">Giriş Yap </a></h5></div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,5 +159,6 @@ unset($__errorArgs, $__bag); ?>
     .justify-content-center{
         padding-top:20rem;
     }
-    
-</style><?php /**PATH C:\laragon\www\classroom-management\resources\views/auth/register.blade.php ENDPATH**/ ?>
+
+</style>
+<?php /**PATH C:\laragon\www\classroom-management\resources\views/auth/register.blade.php ENDPATH**/ ?>

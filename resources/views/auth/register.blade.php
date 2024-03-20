@@ -25,6 +25,19 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">Soyisim</label>
+
+                                <div class="col-md-6">
+                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</Address></label>
@@ -72,7 +85,7 @@
                         </form>
                         <div class="d-flex align-items-end flex-column mb-3">
                             <div class="mb-auto p-2"><h5>Hesabınız var mı? <a href="/login">Giriş Yap </a></h5></div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,5 +103,5 @@
     .justify-content-center{
         padding-top:20rem;
     }
-    
+
 </style>

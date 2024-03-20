@@ -30,7 +30,7 @@
         <div class="col-md-8">
             <input type="hidden" class="form-control"  value="<?php echo e($coursesId); ?>" name="course_id" />
 
-            <input type="text" class="form-control" id="course" placeholder="Konu Ekle" required name="subject" />
+            <input type="text" class="form-control" id="course" placeholder="Konu Ekle" required name="subject" maxlength="255" />
         </div>
         <div class="col-md-4 p-2 position-relative">
             <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>
@@ -63,7 +63,7 @@
                 <td><?php echo e($subject["id"]); ?></td>
                 <td><?php echo e($subject["name"]); ?></td>
                 <td><?php echo e($subject["created_at"]); ?></td>
-                <th scope="col">
+                <th scope="col-2" style="min-width: 120px">
                     <a href='/subject/delete/<?php echo e($subject["id"]); ?>'>
                         <i class="fa fa-trash"></i>
                     </a>

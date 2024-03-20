@@ -42,6 +42,11 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "subject"=>"required||max:255",
+            "course_id"=>"required",
+        ]);
+
         Subject::create([
             "name"=>$request->subject,
             "course_id"=>$request->course_id,

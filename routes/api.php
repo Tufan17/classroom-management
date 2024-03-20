@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\AttendanceController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +27,7 @@ Route::get('/lessons', [CourseController::class, 'lessons']);
 Route::get('/lessons/{id}', [CourseController::class, 'subjects']);
 Route::get('/subject/{id}', [CourseController::class, 'question']);
 Route::get('/exam', [ExamController::class, 'alLExam']);
+Route::get('/user_data', [UserController::class, 'index']);
 
 
 
