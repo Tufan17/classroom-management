@@ -13,4 +13,8 @@ class Course extends Model
         'id',
         'name'
     ];
+
+    public function subjects(){
+        return $this->hasMany('App\Models\Subject','course_id','id');
+    }
 }

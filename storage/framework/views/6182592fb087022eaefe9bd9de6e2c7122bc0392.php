@@ -22,7 +22,7 @@
     <?php echo csrf_field(); ?>
     <div class="row">
         <div class="col-md-8">
-            <input type="text" class="form-control" id="course" value="Ders Ekle" name="course" />
+            <input type="text" class="form-control" id="course" placeholder="Ders Ekle" required name="course" />
         </div>
         <div class="col-md-4 p-2 position-relative">
             <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>

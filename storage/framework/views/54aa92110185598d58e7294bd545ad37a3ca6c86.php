@@ -35,7 +35,7 @@
 $i=0;
 ?>
 <div class="ml-5 mr-5 mt-5">
-    <?php $__currentLoopData = $questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $subject->questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <div class="card mr-1 ml-2 mb-5 float-left" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"><strong><?php echo e($i=1+$i); ?>) </strong><?php echo e($question->title); ?></h5>
@@ -53,7 +53,7 @@ $i=0;
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-<?php if(count($questions)==0): ?>
+<?php if(count($subject->questions)==0): ?>
         <div class="emptyContainer">
             <h5 class="emptyTitle">
                 Konuya ait soru bulunamadı...
@@ -81,7 +81,7 @@ $i=0;
         }
 
 </script>
-            
+
 <style>
        .emptyContainer {
     width: 100rem;
@@ -112,8 +112,8 @@ $i=0;
         padding: 5px;
         text-align: start;
     }
-    
-    
+
+
 
 </style>
 

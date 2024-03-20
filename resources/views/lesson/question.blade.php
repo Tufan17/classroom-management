@@ -35,7 +35,7 @@
 $i=0;
 ?>
 <div class="ml-5 mr-5 mt-5">
-    @foreach ($questions as $question)
+    @foreach ($subject->questions as $question)
 <div class="card mr-1 ml-2 mb-5 float-left" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"><strong>{{ $i=1+$i;  }}) </strong>{{ $question->title }}</h5>
@@ -53,7 +53,7 @@ $i=0;
 
 @endforeach
 
-@if (count($questions)==0)
+@if (count($subject->questions)==0)
         <div class="emptyContainer">
             <h5 class="emptyTitle">
                 Konuya ait soru bulunamadı...
@@ -81,7 +81,7 @@ $i=0;
         }
 
 </script>
-            
+
 <style>
        .emptyContainer {
     width: 100rem;
@@ -112,8 +112,8 @@ $i=0;
         padding: 5px;
         text-align: start;
     }
-    
-    
+
+
 
 </style>
 

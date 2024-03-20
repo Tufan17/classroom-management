@@ -30,7 +30,7 @@
         <div class="col-md-8">
             <input type="hidden" class="form-control"  value="<?php echo e($coursesId); ?>" name="course_id" />
 
-            <input type="text" class="form-control" id="course" value="Konu Ekle" name="subject" />
+            <input type="text" class="form-control" id="course" placeholder="Konu Ekle" required name="subject" />
         </div>
         <div class="col-md-4 p-2 position-relative">
             <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>
@@ -53,29 +53,29 @@
             </tr>
         </thead>
         <tbody>
-            <?php 
+            <?php
                 $i=1;
                 ?>
             <?php $__currentLoopData = $subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
-                <td scope="row"> 
+                <td scope="row">
                 <?php echo e($i++); ?></td>
                 <td><?php echo e($subject["id"]); ?></td>
                 <td><?php echo e($subject["name"]); ?></td>
                 <td><?php echo e($subject["created_at"]); ?></td>
                 <th scope="col">
-                    <a href='/subject/delete/<?php echo e($subject["id"]); ?>'> 
+                    <a href='/subject/delete/<?php echo e($subject["id"]); ?>'>
                         <i class="fa fa-trash"></i>
                     </a>
-                    <a href='/subject/question/<?php echo e($subject["id"]); ?>'> 
+                    <a href='/subject/question/<?php echo e($subject["id"]); ?>'>
                         <i class="fa fa-eye"></i>
-                    
+
                 </th>
 
             </tr>
-        
+
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            
+
         </tbody>
     </table>
 
@@ -98,7 +98,7 @@
         }
         i {
             margin-left: 1rem;
-            
+
             margin-right: 1rem;
 
         }
@@ -120,4 +120,5 @@
 
 </style>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\classroom-management\resources\views/lesson/subject.blade.php ENDPATH**/ ?>

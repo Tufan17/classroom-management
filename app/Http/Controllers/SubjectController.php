@@ -18,8 +18,8 @@ class SubjectController extends Controller
      */
     public function index($id)
     {
-        $subjects=Subject::where("course_id", $id)->get();
-        $course=Course::where("id", $id)->first();
+        $course=Course::where("id",$id)->with('subjects')->first();
+        $subjects=$course->subjects;
         $coursesId=$id;
         return view('lesson.subject',compact('subjects','coursesId','course'));
     }
@@ -58,10 +58,10 @@ class SubjectController extends Controller
     public function question($id)
     {
     //  return $id;
-    $subject = Subject::where("id",$id)->first();
-    $questions = Question::where("subject_id",$id)->get();
-    //  return $questions;
-     return view("lesson.question",compact("subject", "questions"));
+    $subject = Subject::where("id",$id)->with("questions")->first();
+
+
+     return view("lesson.question",compact("subject"));
     }
 
     /**
@@ -96,7 +96,7 @@ class SubjectController extends Controller
     public function destroy($id)
     {
         $subject=Subject::where("id", $id)->first();
-        $subject->delete();        
+        $subject->delete();
         return redirect()->route("subject",$subject->course_id);
     }
 }

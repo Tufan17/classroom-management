@@ -30,7 +30,7 @@
         <div class="col-md-8">
             <input type="hidden" class="form-control"  value="{{ $coursesId }}" name="course_id" />
 
-            <input type="text" class="form-control" id="course" value="Konu Ekle" name="subject" />
+            <input type="text" class="form-control" id="course" placeholder="Konu Ekle" required name="subject" />
         </div>
         <div class="col-md-4 p-2 position-relative">
             <button id="submit-btn" type="submit" class="btn btn-primary position-absolute end-0">Ekle</button>
@@ -53,29 +53,29 @@
             </tr>
         </thead>
         <tbody>
-            @php 
+            @php
                 $i=1;
                 @endphp
             @foreach ($subjects as $subject)
             <tr>
-                <td scope="row"> 
+                <td scope="row">
                 {{$i++}}</td>
                 <td>{{$subject["id"]}}</td>
                 <td>{{$subject["name"]}}</td>
                 <td>{{$subject["created_at"]}}</td>
                 <th scope="col">
-                    <a href='/subject/delete/{{$subject["id"]}}'> 
+                    <a href='/subject/delete/{{$subject["id"]}}'>
                         <i class="fa fa-trash"></i>
                     </a>
-                    <a href='/subject/question/{{$subject["id"]}}'> 
+                    <a href='/subject/question/{{$subject["id"]}}'>
                         <i class="fa fa-eye"></i>
-                    
+
                 </th>
 
             </tr>
-        
+
             @endforeach
-            
+
         </tbody>
     </table>
 
@@ -98,7 +98,7 @@
         }
         i {
             margin-left: 1rem;
-            
+
             margin-right: 1rem;
 
         }
