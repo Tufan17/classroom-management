@@ -13,19 +13,22 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $courses=Course::all();
-        // return $courses;
-        return view('lesson.lesson',compact("courses"));
-        
+        $active =$request->active ?intval($request->active) : 1;
+        $count = Course::count();
+        $page = ceil($count / 5);
+        $active = $active > $page ? intval($page) : $active;
+        $offset = ($active - 1) * 5; 
+        $courses = Course::skip($offset)->take(5)->get();
+        return view('lesson.lesson',compact("courses","page","active"));
     }
     public function add()
     {
         $courses=Course::all();
 
         return view('lesson.added_lesson',compact("courses"));
-        
+
     }
 
     public function addlesson(Request $request){
@@ -34,7 +37,7 @@ class CourseController extends Controller
         ]);
         //compact("");
         return redirect()->route("lesson");
-       
+
     }
     /**
      * Show the form for creating a new resource.
@@ -112,7 +115,7 @@ class CourseController extends Controller
         $course=Course::where("id", $id)->first();
         $course->delete();
         return redirect()->route("lesson");
-        
+
 
     }
 }

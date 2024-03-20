@@ -13,10 +13,7 @@ class HomeController extends Controller
      */
     public function login(Request $request)
     {
-        $email=$request->email;
-        $password=$request->password;
-        return $request;
-        return redirect()->route("login",$email,$password);
+        
     }
 
     public function __construct()

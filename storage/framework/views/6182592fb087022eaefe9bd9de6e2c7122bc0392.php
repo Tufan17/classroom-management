@@ -15,11 +15,11 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@extends('layouts.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <form method="get" action="/lesson/add">
-    @csrf
+    <?php echo csrf_field(); ?>
     <div class="row">
         <div class="col-md-8">
             <input type="text" class="form-control" id="course" value="Ders Ekle" name="course" />
@@ -43,23 +43,23 @@
             </tr>
         </thead>
         <tbody>
-            @php
+            <?php
                 $i=1;
-                @endphp
-            @foreach ($courses as $course)
+                ?>
+            <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
                 <td scope="row">
-                {{$i++}}</td>
-                <td>{{$course["id"]}}</td>
-                <td>{{$course["name"]}}</td>
-                <td>{{$course["created_at"]}}</td>
+                <?php echo e($i++); ?></td>
+                <td><?php echo e($course["id"]); ?></td>
+                <td><?php echo e($course["name"]); ?></td>
+                <td><?php echo e($course["created_at"]); ?></td>
                 <th scope="col">
                     <div>
-                        <a href='/lesson/delete/{{$course["id"]}}'>
+                        <a href='/lesson/delete/<?php echo e($course["id"]); ?>'>
                             <i class="fa fa-trash"></i>
                         </a>
 
-                    <a href='/subject/{{$course["id"]}}'>
+                    <a href='/subject/<?php echo e($course["id"]); ?>'>
                         <i class="fa fa-eye"></i>
                     </a>
                     </div>
@@ -69,7 +69,7 @@
 
             </tr>
 
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </tbody>
     </table>
@@ -83,14 +83,14 @@
                 </a>
             </li>
 
-            @for ($i = 1; $i <= $page; $i++)
-                <li class="page-item {{ $active === $i ? 'active' : '' }}">
-                    <a class="page-link" href="?active={{ $i }}">{{ $i }}</a>
+            <?php for($i = 1; $i <= $page; $i++): ?>
+                <li class="page-item <?php echo e($active === $i ? 'active' : ''); ?>">
+                    <a class="page-link" href="?active=<?php echo e($i); ?>"><?php echo e($i); ?></a>
                 </li>
-            @endfor
+            <?php endfor; ?>
 
             <li class="page-item">
-                <a class="page-link" href="?active={{ ($active + 1) }}" aria-label="Next">
+                <a class="page-link" href="?active=<?php echo e(($active + 1)); ?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -143,4 +143,6 @@
 
             </style>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\classroom-management\resources\views/lesson/lesson.blade.php ENDPATH**/ ?>
